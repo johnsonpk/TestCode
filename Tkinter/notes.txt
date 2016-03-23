@@ -1,0 +1,3 @@
+from Tkinter import *
+	the * fully qualifies the names internally
+	
