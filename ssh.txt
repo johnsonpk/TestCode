@@ -1,0 +1,37 @@
+ssh
+generate keys
+	ssh-keygen -t rsa
+
+
+scp - secure file transfer, used for known directory/file
+sftp - secure file transfer protocol, used for multple files or if directory is unknown
+
+what about when a direct connection isn't possible??
+	THE CLOUD TO HELP
+		use ssh to establish a reverse tunnel to the cloud server
+
+	remoteuser@remote.server
+		while true; do 
+		ssh -R 12121:localhost:22 clouduser@cloudserver
+		sleep 60
+		done
+
+		#12121 is now the port on the cloudserver to ssh into
+
+	remoteuser@remote.server
+		ssh 12121:localhost:22 clouduser@cloudserver
+
+
+	user@local
+		ssh clouduser@cloudserver
+
+		clouduser@cloudserver
+			ssh remoteuser@localhost-p 12121
+
+			search ssh reverse tunnel
+
+			-R sets up port listening on [localportTolistenOn]:[localmachine]:[sshport(22)]
+
+			inana displays protocols officially (standard)
+
+
