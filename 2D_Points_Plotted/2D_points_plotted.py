@@ -10,7 +10,6 @@ from math import sqrt
 
 # the 2D point class
 class Point(object):
-	# write your code for the point class here (and subsequently remove this comment)
 	def __init__(self, x = 0.0, y = 0.0):
 		self.x = x
 		self.y = y
@@ -55,7 +54,6 @@ class Point(object):
 # the coordinate system class: (0,0) is in the top-left corner
 # inherits from the Canvas class of Tkinter
 class CoordinateSystem(Canvas):
-	# write your code for the coordinate system class here (and subsequently remove this comment)
 	# define init, inherit from master
 	def __init__(self, master):
 		# We want to use a canvas on which to plot points, using a white background
@@ -64,21 +62,26 @@ class CoordinateSystem(Canvas):
 		# we want the canvas to fill the window completely
 		self.pack(fill=BOTH, expand=1)
 
+	# Take input of n, plots n number of points at randomly generated locations
 	def plotPoints(self, n):
 		for i in range(n):
 			x = randint(0, WIDTH - 1)
 			y = randint(0, HEIGHT - 1)
 			self.plot(x, y)
 
+	# function to plot a point of POINT_RADIUS at location (x,y) 
 	def plot(self, x, y):
+		# randomly selects a color from arbitrary set of colors
 		color = COLORS[randint(0, len(COLORS) - 1)]
+		# invokes create_oval class from Canvas, arguments consist of top-left coordinate and 
+			# bottom-right point
 		self.create_oval(x, y, x + POINT_RADIUS * 2,\
 			y + POINT_RADIUS * 2, outline=color)
 
 	
 
-##########################################################
-# ***DO NOT MODIFY OR REMOVE ANYTHING BELOW THIS POINT!***
+############################################################
+# ****DO NOT MODIFY OR REMOVE ANYTHING BELOW THIS POINT!****
 # the default size of the canvas is 400x400
 WIDTH = 400
 HEIGHT = 400
